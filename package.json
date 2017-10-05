@@ -1,0 +1,19 @@
+{
+  "name": "seminar-typescript",
+  "version": "1.0.0",
+  "description": "package.js hold dependence libs",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.2.2",
+    "typescript": "^2.5.3"
+  },
+  "devDependencies": {
+    "gulp-clean": "^0.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "trong-tran",
+  "license": "ISC"
+}
