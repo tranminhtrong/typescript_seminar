@@ -1,7 +1,7 @@
 {
   "name": "seminar-typescript",
   "version": "1.0.0",
-  "description": "package.js hold dependence libs",
+  "description": "package.json hold dependence libs",
   "main": "gulpfile.js",
   "dependencies": {
     "gulp": "^3.9.1",
@@ -9,7 +9,11 @@
     "typescript": "^2.5.3"
   },
   "devDependencies": {
-    "gulp-clean": "^0.3.2"
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-cli": "^1.4.0",
+    "gulp-typescript": "^3.2.2",
+    "typescript": "^2.5.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
