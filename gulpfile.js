@@ -1,31 +1,41 @@
 var gulp = require("gulp");
-var clean = require('gulp-clean');
-var ts = require("gulp-typescript");
-var browserify = require("browserify");
-var source = require('vinyl-source-stream');
-var tsify = require("tsify");
-var tsProject = ts.createProject('tsconfig.json');
-var watchify = require("watchify");
-var gutil = require("gulp-util");
+var browserify = require("gulp-browserify");
+// var uglify = require("gulp-uglify");
+// var clean = require('gulp-clean');
 
-gulp.task('clean-scripts', function () {
-    return gulp.src('wwwroot/scripts', {read: false})
-      .pipe(clean());
-  });
 
-// gulp.task("default", ["clean-scripts"],function () {
-//     var tsResult = gulp.src("src/*/*.ts")
-//         .pipe(tsProject());
-//     return tsResult.js
-//     .browserify({
-//         insertGlobals : true,
-//         debug : !gulp.env.production
-//       })
-//       .pipe(gulp.dest("wwwroot/scripts"));
+// var ts = require("gulp-typescript");
+// var tsProject = ts.createProject('tsconfig.json');
+
+
+// var tsInputFileFolders = tsProject.options.rootDir;
+// var jsOutputFileFolders = tsProject.options.outDir;
+
+// gulp.task('clean-scripts', function () {
+//   return gulp.src(jsOutputFileFolders, { read: true })
+//     .pipe(clean());
 // });
 
-gulp.task("default", ["clean-scripts"],function () {
-    var tsResult = gulp.src("src/*/*.ts")
-        .pipe(tsProject());
+// gulp.task("browserify", function () {
+//   var tsResult = gulp.src([tsInputFileFolders + "/**/*.ts"]).pipe(tsProject());
+//   return tsResult.js
+//     .pipe(browserify())
+//     .pipe(uglify())
+//     .pipe(gulp.dest(jsOutputFileFolders));
+// });
+
+// gulp.task("default", ["clean-scripts", "browserify"], function () { });
+
+var gulp = require("gulp");
+var ts = require("gulp-typescript");
+
+gulp.task("default", function () {
+    var tsResult = gulp.src("src/**/*.ts")
+        .pipe(ts({
+              target: "es5",
+              module: "system",
+              noImplicitAny: true,
+              outFile: "output.js"
+        }));
     return tsResult.js.pipe(gulp.dest("wwwroot/scripts"));
 });

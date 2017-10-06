@@ -5,5 +5,3 @@ export class ParseIntBasedZipCodeValidator {
         return s.length === 5 && parseInt(s).toString() === s;
     }
 }
-
-export {ParseIntBasedZipCodeValidator as newName}
